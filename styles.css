@@ -1,0 +1,182 @@
+@import url("https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@400;700&display=swap");
+:root {
+  --font: 12px;
+  --active-stat: hsl(14, 88%, 65%);
+  --bg-violet: hsl(273, 75%, 66%);
+  --bg-blue: hsl(240, 73%, 65%);
+  --div-color: hsl(240, 5%, 91%);
+  --darker-clr: hsl(237, 12%, 33%);
+  --lighter-clr: hsl(240, 6%, 50%);
+  --transition-1: 300ms ease-in;
+  --transition-2: max-height 200ms ease-in;
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  width: 100%;
+  height: 100vh;
+  background: linear-gradient(90deg, var(--bg-violet), var(--bg-blue));
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: var(--font);
+  font-family: "Kumbh Sans", sans-serif;
+}
+li {
+  list-style: none;
+}
+a,
+a:focus {
+  display: block;
+  text-decoration-line: none;
+  transition: var(--transition-1);
+}
+.accordion {
+  position: relative;
+  max-width: 70%;
+  background-color: #ffffff;
+  border-radius: 25px;
+  box-shadow: 0 15px 30px var(--darker-clr);
+  margin: 23px;
+}
+.accordion::before {
+  content: "";
+  position: absolute;
+  top: 48%;
+  left: -81px;
+  background: url("./images/illustration-box-desktop.svg") top left no-repeat;
+  transform: translateY(-30%);
+  background-size: 100%;
+  width: 167px;
+  height: 160px;
+  z-index: 1;
+}
+.ac_content {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+.ac_content .illustrations {
+  position: relative;
+  width: 50%;
+  display: block;
+  overflow: hidden;
+}
+.illustrations::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: -457px;
+  background: url(./images/bg-pattern-desktop.svg) top left no-repeat;
+  transform: translateY(-59%);
+  background-size: 100%;
+  width: 766px;
+  height: 745px;
+}
+.illustrations::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: -65px;
+  background: url("./images/illustration-woman-online-desktop.svg") top left
+    no-repeat;
+  transform: translateY(-52%);
+  background-size: 100%;
+  width: 372px;
+  height: 290px;
+}
+.ac_content .FAQ_list {
+  width: 50%;
+  padding: 30px 60px 30px 0;
+  margin: 25px 25px 25px 0;
+}
+.ac_content .FAQ_list h1 {
+  color: var(--darker-clr);
+  margin-bottom: 16px;
+}
+.open_item {
+  position: relative;
+  color: var(--lighter-clr);
+  padding: 16px 16px 16px 0;
+}
+.open_item .mark {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  transition: var(--transition-1);
+  right: 16px;
+}
+.mark.expanded {
+  transform: translateY(-50%) rotate(180deg);
+}
+.open_item:hover {
+  color: var(--active-stat);
+}
+.open_item.active {
+  color: var(--darker-clr) !important;
+  font-weight: 700;
+}
+.content {
+  overflow: hidden;
+  border-bottom: 1px solid var(--div-color);
+  max-height: 0px;
+  transition: var(--transition-2);
+}
+.content p {
+  color: var(--lighter-clr);
+  padding: 0 16px 16px 0;
+}
+.content.active {
+  max-height: 100px;
+  transition: var(--transition-2);
+}
+/* For Mobile */
+@media screen and (max-width: 1024px) {
+  .accordion {
+    margin-top: 50px;
+    max-width: 100%;
+  }
+  .accordion::before {
+    top: -91px;
+    left: 50%;
+    background: url(./images/illustration-woman-online-mobile.svg) top left no-repeat;
+    transform: translateX(-50%);
+    background-size: 100%;
+    width: 201px;
+    height: 160px;
+  }
+  .ac_content {
+    flex-direction: column;
+  }
+  .ac_content .FAQ_list {
+    width: 100%;
+    padding: 30px 30px 60px 30px;
+    margin: 0;
+  }
+  .ac_content .FAQ_list h1 {
+    text-align: center;
+  }
+  .open_item .mark {
+    right: 0;
+  }
+  .illustrations {
+    width: 100% !important;
+    height: 100px;
+  }
+  .illustrations::before {
+    top: 30%;
+    left: 50%;
+    transform: translateY(-59%) translateX(-52%);
+    width: 198px;
+    height: 210px;
+  }
+  .illustrations::after {
+    content: none;
+  }
+  /* a.open_item {
+      padding: 16px 0 16px 0;
+    } */
+}
