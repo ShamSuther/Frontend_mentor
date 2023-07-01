@@ -93,3 +93,4 @@ const validateSubmit = (e) => {
 
 submit.addEventListener("click", validateSubmit);
 
+// Git Visualized
