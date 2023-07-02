@@ -1,5 +1,6 @@
 // Imports
-const card_name = document.getElementById("card_name"),
+const form = document.getElementById("form"),
+    card_name = document.getElementById("card_name"),
     card_number = document.getElementById("card_number"),
     date_month = document.getElementById("card_month"),
     date_year = document.getElementById("card_year"),
@@ -12,6 +13,8 @@ const display_name = document.getElementById("name"),
     display_year = document.getElementById("year"),
     display_cvc = document.getElementById("cvc");
 
+const regards = document.getElementById("regards");
+
 // Set
 
 card_name.addEventListener("input", () => {
@@ -19,23 +22,30 @@ card_name.addEventListener("input", () => {
 });
 
 card_number.addEventListener("input", () => {
-    const value = card_number.value.toString();
-    display_no.innerText = value;
+    const regex = /(.{4})/g;
+    const max = 16;
+    const string = card_number.value.slice(0, max);
+    const format = string.replace(regex, "$1 ");
+    display_no.innerText = format.toString();
+    card_number.value = string;
 });
 
 date_month.addEventListener("input", () => {
-    const value = date_month.value.toString();
-    display_month.innerText = value;
+    const value = date_month.value.slice(0, 2);
+    display_month.innerText = value.toString();
+    date_month.value = value;
 });
 
 date_year.addEventListener("input", () => {
-    const value = date_year.value.toString();
-    display_year.innerText = value;
+    const value = date_year.value.slice(0, 2);
+    display_year.innerText = value.toString();
+    date_year.value = value;
 });
 
 cvc.addEventListener("input", () => {
-    const value = cvc.value.toString();
+    const value = cvc.value.slice(0, 4);
     display_cvc.innerText = value;
+    cvc.value = value;
 })
 
 // Reset
@@ -82,12 +92,47 @@ cvc.addEventListener("blur", () => {
 
 // Submit
 
+const setError = (field, input) => {
+    input.focus();
+    input.classList.add("error");
+
+    const element = document.getElementsByClassName(field);
+
+    for (var i = 0; i < element.length; i++) {
+        const msg = element[i].getElementsByClassName("error_msg");
+        msg[0].classList.remove("hidden");
+        setTimeout(() => {
+            msg[0].classList.add("hidden");
+        }, 1500);
+    }
+
+    setTimeout(() => {
+        input.classList.remove("error");
+    }, 1500);
+}
+
 const validateSubmit = (e) => {
     e.preventDefault();
     if (!card_name.value) {
-        console.log("name");
+        setError("field_name", card_name);
+    } else if (!card_number.value) {
+        setError("field_number", card_number);
+    } else if (!date_month.value) {
+        setError("field_date", date_month);
+    } else if (!date_year.value) {
+        setError("field_date", date_year);
+    } else if (!cvc.value) {
+        setError("field_cvc", cvc);
     } else {
-        console.log("clicked");
+        form.classList.add('animate__animated', 'animate__fadeOut');
+        setTimeout(() => {
+            regards.classList.remove("hidden");
+            regards.classList.add('animate__animated', 'animate__zoomIn');
+        }, 250);
+        form.classList.add("hidden");
+        regards.classList.remove('animate__animated', 'animate__zoomIn');
+
+        document.location.reload();
     }
 }
 

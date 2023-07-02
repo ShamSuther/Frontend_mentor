@@ -10,6 +10,8 @@
   --error: hsl(0, 100%, 66%);
 
   --submit-width: 21.875rem; /* 350px */
+  --def-font: 1.125rem; /* 18px */
+  --def-btn: 1rem; /* 16px */
 }
 
 /* Chrome, Safari, Edge, Opera */
@@ -30,7 +32,7 @@ input[type="number"] {
   box-sizing: border-box;
   font-family: "Space Grotesk", sans-serif;
   font-weight: 500;
-  font-size: 18px;
+  font-size: var(--def-font);
 }
 
 body {
@@ -43,7 +45,13 @@ body {
 }
 
 .error {
-  border-color: var(--error);
+  border-color: var(--error) !important;
+}
+
+.error_msg p {
+  font-size: 13px;
+  margin-top: 11px;
+  color: var(--error);
 }
 
 .hidden {
@@ -76,7 +84,6 @@ body {
   object-fit: cover;
   object-position: center;
   filter: drop-shadow(0 0 50px rgba(0, 0, 0, 0.3));
-  transition: 150ms ease-in-out;
 }
 
 .cards .card_front {
@@ -97,7 +104,8 @@ body {
 
 .card_content #number {
   margin-top: 1.5rem;
-  font-size: 35px;
+  letter-spacing: 3px;
+  font-size: 30px;
 }
 
 .card_content .card_info {
@@ -105,6 +113,7 @@ body {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  align-items: center;
 }
 .card_info #name,
 .card_info #date {
@@ -169,7 +178,7 @@ button {
   width: 100%;
   height: 100%;
   padding: 15px;
-  font-size: 16px;
+  font-size: var(--def-btn);
   border-radius: var(--border-radius);
   border: 2px solid var(--gray);
   transition: 150ms ease-in-out;
@@ -203,7 +212,7 @@ form .lr {
 form #submit_btn {
   padding: 20px;
   cursor: pointer;
-  font-size: 16px;
+  font-size: var(--def-btn);
   color: var(--white);
   background: var(--darker-violet);
   border-radius: var(--border-radius);
@@ -214,7 +223,7 @@ form #submit_btn {
 
 /* Regards */
 
-.regards {
+#regards {
   max-width: var(--submit-width);
   display: flex;
   flex-direction: column;
@@ -223,23 +232,24 @@ form #submit_btn {
   text-align: center;
   gap: 1rem;
 }
-.regards h1 {
+#regards h1 {
   font-size: 2rem;
   text-transform: uppercase;
   letter-spacing: 3px;
   margin: 0 0 0.5rem 0;
 }
-.regards p {
+#regards p {
   text-transform: uppercase;
   letter-spacing: 3px;
   color: var(--dark-grayish-violet);
   padding: 0 0.5rem;
 }
-.regards .continue {
-  padding: 1rem;
+#regards .continue {
   width: 100%;
+  padding: 1rem;
   cursor: pointer;
   color: var(--white);
+  font-size: var(--def-btn);
   background: var(--darker-violet);
   border-radius: var(--border-radius);
   border: 1px solid transparent;
@@ -249,23 +259,39 @@ form #submit_btn {
 /* 1024 */
 
 @media screen and (max-width: 1024px) {
+  .left {
+    width: 50%;
+  }
+
   .card_front .card_img,
   .card_back .card_img {
     width: 300px;
+    transition: width 150ms ease-in-out;
   }
 
   .card_logo {
     width: 50px;
   }
 
+  .card_info #name,
+  .card_info #date,
+  .card_info #date > * {
+    font-size: 13px;
+  }
+
   .card_content #number {
-    margin-top: 1.5rem;
-    font-size: 1rem;
+    margin-top: 1rem;
+    font-size: 16px;
+  }
+
+  .card_back {
+    transform: translateX(-100px);
   }
 
   .card_back #cvc {
     top: 41%;
     right: 12%;
+    font-size: 16px;
   }
 
   .right {
@@ -345,8 +371,12 @@ form #submit_btn {
     font-size: 12px;
   }
 
+  .card_content #number {
+    margin-top: 1rem;
+  }
+
   .submit_btn {
-    font-size: 16px;
+    font-size: var(--def-btn);
     font-weight: 600;
   }
 }

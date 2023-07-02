@@ -16,6 +16,13 @@
 
     <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
     <link rel="stylesheet" href="./style.css" />
+
+    <!-- Animate.css -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+    />
+
     <script src="./script.js" defer></script>
   </head>
   <body>
@@ -52,32 +59,59 @@
       </div>
       <!-- right/bottom -->
       <div class="right">
-        <form class="">
-          <div class="input_field">
+        <form id="form">
+          <div class="input_field field_name">
             <label for="name">Cardholder Name</label>
-            <input type="text" id="card_name" placeholder="e.g. Jane Appleseed" />
+            <input
+              type="text"
+              id="card_name"
+              placeholder="e.g. Jane Appleseed"
+            />
+            <div class="error_msg hidden">
+              <p>Can't be blank</p>
+            </div>
           </div>
-          <div class="input_field">
+          <div class="input_field field_number">
             <label for="number">Card Number</label>
             <input
               type="number"
               id="card_number"
               placeholder="e.g. 1234 5678 9123 0000"
-              maxlength="16"
             />
+            <div class="error_msg hidden">
+              <p>Can't be blank</p>
+            </div>
           </div>
 
           <div class="lr">
-            <div class="input_field">
+            <div class="input_field field_date">
               <label for="number">Exp. Date (MM/YY)</label>
               <div class="date">
-                <input id="card_month" name="date" type="number" placeholder="MM" maxlength="30"/>
-                <input id="card_year" name="date" type="number" placeholder="YY" maxlength="12"/>
+                <input
+                  id="card_month"
+                  name="date"
+                  type="number"
+                  placeholder="MM"
+                  maxlength="30"
+                />
+                <input
+                  id="card_year"
+                  name="date"
+                  type="number"
+                  placeholder="YY"
+                  maxlength="12"
+                />
+              </div>
+              <div class="error_msg hidden">
+                <p>Can't be blank</p>
               </div>
             </div>
-            <div class="input_field">
+            <div class="input_field field_cvc">
               <label for="number">CVC</label>
               <input type="text" id="cvc_number" placeholder="e.g. 123" />
+              <div class="error_msg hidden">
+                <p>Can't be blank</p>
+              </div>
             </div>
           </div>
 
@@ -86,7 +120,7 @@
 
         <!-- Regards -->
 
-        <div class="regards hidden">
+        <div id="regards" class="hidden">
           <img src="./images/icon-complete.svg" alt="Completed✨" />
           <div>
             <h1>Thank You!</h1>
@@ -96,6 +130,5 @@
         </div>
       </div>
     </main>
-    
   </body>
 </html>
