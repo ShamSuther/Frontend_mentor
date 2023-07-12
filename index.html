@@ -15,7 +15,15 @@
     <title>
       Frontend Mentor | Newsletter sign-up form with success message
     </title>
+
     <link rel="stylesheet" href="./styles.css" />
+
+    <!-- Animate.css -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+    />
+
     <script defer src="./script.js"></script>
   </head>
   <body>
@@ -32,7 +40,10 @@
         <!-- form -->
         <form class="sign-up">
           <div class="input">
-            <label for="email">Email address</label>
+            <div class="group">
+              <label for="email">Email address</label>
+              <p class="msg"></p>
+            </div>
             <input type="email" placeholder="email@company.com" id="email" />
           </div>
           <button id="btn" class="submit">
@@ -41,21 +52,23 @@
         </form>
       </div>
       <div class="regards hidden">
-        <img src="./assets/images/icon-success.svg" alt="" />
-        <h1>Thanks for subscribing!</h1>
-        <p>
-          A confirmation email has been sent to ash@loremcompany.com. Please
-          open it and click the button inside to confirm your subscription.
-        </p>
-        <button class="submit">
+        <div class="regards_content">
+          <img src="./assets/images/icon-success.svg" alt="success" />
+          <div class="text">
+            <h1>Thanks for subscribing!</h1>
+            <p>
+              A confirmation email has been sent to
+              <span id="mail">ash@loremcompany.com</span>. Please open it and
+              click the button inside to confirm your subscription.
+            </p>
+          </div>
+        </div>
+        <button id="dismiss" class="submit">
           <span>Dismiss message</span>
         </button>
       </div>
       <div class="img">
-        <img
-          src="./assets/images/illustration-sign-up-desktop.svg"
-          alt="success"
-        />
+        <img src="./assets/images/illustration-sign-up-desktop.svg" alt="img" />
       </div>
     </div>
   </body>

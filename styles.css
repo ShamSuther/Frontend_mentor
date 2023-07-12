@@ -24,11 +24,13 @@
   --roboto: Roboto-Regular;
   --roboto-bold: Roboto-Bold;
 
+  --tablet: 768px;
   --mobile: 375px;
 
   --rounded: 2.25rem;
 
-  --w-400: 25rem; /*400px*/
+  --w-400: 25rem; /* 400px */
+  --w-500: 31.25rem; /* 500px */
   --p-24: 1.5rem;
 }
 * {
@@ -45,10 +47,11 @@ body {
   align-items: center;
   justify-content: center;
   background: var(--charcoal-grey);
+  transition: 250ms;
 }
 
 .hidden {
-  display: none;
+  display: none !important;
 }
 
 .newsletter {
@@ -84,32 +87,44 @@ body {
 }
 .content .list {
   list-style-position: inside;
-  line-height: 2;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 0.813rem;
 }
 
 .list .item {
   list-style: none;
   font-weight: 500;
   color: var(--dark-slate-grey);
-  background: url("./assets/images/icon-list.svg") left center no-repeat;
+  background: url(./assets/images/icon-list.svg) left center no-repeat;
+  background-position-y: top;
   padding-left: 2.188rem;
-}
-
-.newsletter .img {
-  width: 100%;
-  max-width: var(--w-400);
+  line-height: 1.5;
 }
 
 .newsletter .signup {
   padding: 10px 0;
 }
 
-.input label {
-  display: block;
-  font-size: 0.75rem;
+.input .group {
   color: var(--dark-slate-grey);
   font-family: var(--roboto-bold);
   margin-bottom: 13px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.group label,
+.group p {
+  font-size: 0.75rem;
+  font-family: var(--roboto-bold);
+  display: inline-block;
+}
+
+.group .msg {
+  color: var(--tomato);
 }
 
 .input input {
@@ -144,6 +159,7 @@ input.error {
   width: 100%;
   position: relative;
   color: var(--white);
+  font-size: 0.938rem; /* 15px */
   font-family: var(--roboto-bold);
   background: linear-gradient(90deg, var(--red) 30%, var(--tomato));
   padding: var(--p-24);
@@ -152,6 +168,7 @@ input.error {
   cursor: pointer;
   outline: none;
   border: none;
+  transition: 250ms ease-in;
   z-index: 1;
 }
 
@@ -173,9 +190,78 @@ input.error {
   box-shadow: 0 15px 30px var(--shadow);
 }
 
+.regards {
+  max-width: var(--w-500);
+  padding: 2.5rem; /* 40px */
+}
+
+.regards .text {
+  margin: 2.813rem 0;
+}
+
+.text h1 {
+  font-size: var(--title);
+  color: var(--dark-slate-grey);
+  font-family: var(--roboto-bold);
+  margin-bottom: 1.563rem;
+  line-height: 1;
+}
+
+.text p {
+  font-size: var(--font-paragraph);
+  color: var(--dark-slate-grey);
+  line-height: 1.5;
+}
+
+.text p #mail {
+  font-family: var(--roboto-bold);
+}
+
 .img img {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  max-width: var(--w-400);
   object-position: center;
+}
+
+@media screen and (max-width: 768px) {
+  :root {
+    --title: 2.5rem;
+    --mb: 1rem;
+  }
+  body {
+    background: var(--white);
+  }
+  .newsletter {
+    height: 100%;
+    flex-direction: column-reverse;
+    justify-content: space-between;
+    border-radius: 0;
+    box-shadow: none;
+    gap: inherit;
+    padding: 0;
+    margin: 0;
+  }
+  .content {
+    padding: 0;
+    gap: 1.875rem;
+    padding: 24px;
+    margin-bottom: var(--mb);
+  }
+  .img img {
+    max-width: auto;
+    content: url("./assets/images/illustration-sign-up-mobile.svg");
+  }
+  .regards {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 1.563rem; /* 25px */
+    margin-bottom: var(--mb);
+  }
+  .regards_content {
+    margin-top: 30%;
+  }
 }
