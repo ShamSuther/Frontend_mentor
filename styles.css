@@ -1,0 +1,215 @@
+@import url("https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@500;700;800&display=swap");
+:root {
+  --hanken: "Hanken Grotesk", sans-serif;
+
+  /* Colors */
+
+  --light-red: hsl(0, 100%, 67%);
+  --orangey-yellow: hsl(39, 100%, 56%);
+  --green-teal: hsl(166, 100%, 37%);
+  --cobalt-blue: hsl(234, 85%, 45%);
+
+  /* Neutrals */
+
+  --white: hsl(0, 0%, 100%);
+  --white-fade: hsla(0, 0%, 100%, 0.678);
+  --pale-blue: hsl(221, 100%, 94%);
+  --light-lavender: hsl(241, 100%, 89%);
+  --dark-gray-blue: hsl(224, 30%, 27%);
+
+  /* Gradients */
+
+  --light-slate-blue: hsl(252, 100%, 67%);
+  --light-royal-blue: hsl(241, 81%, 54%);
+  --violet-blue: hsla(256, 72%, 46%, 1);
+  --persian-blue: hsla(241, 72%, 46%, 0);
+
+  --grad-1: linear-gradient(
+    180deg,
+    var(--light-slate-blue),
+    var(--light-royal-blue)
+  );
+  --grad-2: linear-gradient(180deg, var(--violet-blue), var(--persian-blue));
+
+  /* Font */
+
+  --paragraph: 18px;
+
+  /* Dimensions */
+
+  --main-w: 46.125rem; /* 738px */
+  --main-h: 31.875rem; /* 510px */
+  --left: 50%;
+
+  /* Border Radius */
+
+  --rounded: 2.063rem; /* 33px */
+  --rounded-small: 0.938rem; /* 15px */
+  --rounded-full: 100%;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: var(--hanken);
+  font-size: var(--paragraph);
+  font-weight: 500;
+}
+
+body {
+  height: 100vh;
+  max-height: 100vh;
+  background: var(--white);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.result {
+  width: 100%;
+  max-width: var(--main-w);
+  max-height: var(--main-h);
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 2.5rem; /* 40px */
+  border-radius: var(--rounded);
+  box-shadow: 5px 15px 20px var(--pale-blue);
+  overflow: hidden;
+}
+
+.section-title {
+  font-weight: 700;
+  font-size: 20px;
+}
+
+.result .left {
+  width: var(--left);
+  padding: 2.75rem; /* 44px */
+  background: var(--grad-1);
+  border-radius: var(--rounded);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  text-align: center;
+  gap: 2.5rem;
+}
+
+.left .section-title {
+  color: var(--white-fade);
+}
+
+.left .fmarks {
+  background: var(--grad-2);
+  border-radius: var(--rounded-full);
+  padding: 50px 65px;
+}
+
+.fmarks span:first-child {
+  display: block;
+  color: var(--white);
+  font-size: 3.125rem; /* 50px */
+}
+
+.fmarks span:nth-child(2) {
+  color: var(--white-fade);
+  font-weight: 700;
+  font-size: 16px;
+}
+
+.left .regards {
+  color: var(--white-fade);
+  padding: 1.25rem;
+}
+
+.regards h2 {
+  font-size: 1.563rem; /* 25px */
+  color: var(--white);
+  margin-bottom: 25px;
+}
+
+.result .right {
+  width: calc(100% - var(--left));
+  padding: 2.5rem 2.5rem 2.5rem 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 35px;
+}
+
+.right .section-title {
+  color: var(--dark-gray-blue);
+}
+
+.right .content {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.content .category {
+  /* background: rgba(255, 0, 0, 0.306); */
+  padding: 1.25rem;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  border-radius: var(--rounded-small);
+}
+
+.category.reaction {
+  background: var(--light-red);
+}
+.category.reaction .name {
+  color: var(--light-red);
+}
+
+.category.memory {
+  background: var(--orangey-yellow);
+}
+.category.memory .name {
+  color: var(--orangey-yellow);
+}
+
+.category.verbal {
+  background: var(--green-teal);
+}
+.category.verbal .name {
+  color: var(--green-teal);
+}
+
+.category.visual {
+  background: var(--cobalt-blue);
+}
+.category.visual .name {
+  color: var(--cobalt-blue);
+}
+
+.category .name {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.category .marks span:first-child {
+  color: var(--dark-gray-blue);
+  font-weight: 800;
+}
+
+.category .marks span:last-child {
+  color: var(--white-fade);
+}
+
+.right .submit {
+  width: 100%;
+  font-size: 0.89rem;
+  color: var(--white);
+  background: var(--dark-gray-blue);
+  border-radius: 33px;
+  padding: 1.25rem;
+  cursor: pointer;
+}
