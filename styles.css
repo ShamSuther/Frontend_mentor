@@ -5,9 +5,16 @@
   /* Colors */
 
   --light-red: hsl(0, 100%, 67%);
+  --lightest-red: hsl(7, 80%, 95%);
+
   --orangey-yellow: hsl(39, 100%, 56%);
+  --light-orangey-yellow: hsl(44, 85%, 94%);
+
   --green-teal: hsl(166, 100%, 37%);
+  --light-green-teal: hsl(166, 76%, 93%);
+
   --cobalt-blue: hsl(234, 85%, 45%);
+  --light-cobalt-blue: hsl(249, 87%, 92%);
 
   /* Neutrals */
 
@@ -15,6 +22,8 @@
   --white-fade: hsla(0, 0%, 100%, 0.678);
   --pale-blue: hsl(221, 100%, 94%);
   --light-lavender: hsl(241, 100%, 89%);
+
+  --light-gray-blue: hsl(249, 7%, 61%);
   --dark-gray-blue: hsl(224, 30%, 27%);
 
   /* Gradients */
@@ -40,6 +49,7 @@
   --main-w: 46.125rem; /* 738px */
   --main-h: 31.875rem; /* 510px */
   --left: 50%;
+  --h-left: 45%;
 
   /* Border Radius */
 
@@ -58,18 +68,21 @@
 }
 
 body {
-  height: 100vh;
-  max-height: 100vh;
   background: var(--white);
-  display: flex;
-  align-items: center;
-  justify-content: center;
+}
+
+@media (min-width: 768px) {
+  body {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
 }
 
 .result {
   width: 100%;
   max-width: var(--main-w);
-  max-height: var(--main-h);
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -102,21 +115,21 @@ body {
 }
 
 .left .fmarks {
+  width: 10rem;
+  display: grid;
+  place-content: center;
   background: var(--grad-2);
+  aspect-ratio: 1 / 1;
   border-radius: var(--rounded-full);
-  padding: 50px 65px;
+  color: var(--white-fade);
+  font-weight: 700;
+  font-size: 16px;
 }
 
 .fmarks span:first-child {
   display: block;
   color: var(--white);
   font-size: 3.125rem; /* 50px */
-}
-
-.fmarks span:nth-child(2) {
-  color: var(--white-fade);
-  font-weight: 700;
-  font-size: 16px;
 }
 
 .left .regards {
@@ -159,31 +172,33 @@ body {
   display: flex;
   justify-content: space-between;
   border-radius: var(--rounded-small);
+  border: 1px solid transparent;
+  border-color: #00000006;
 }
 
 .category.reaction {
-  background: var(--light-red);
+  background: var(--lightest-red);
 }
 .category.reaction .name {
   color: var(--light-red);
 }
 
 .category.memory {
-  background: var(--orangey-yellow);
+  background: var(--light-orangey-yellow);
 }
 .category.memory .name {
   color: var(--orangey-yellow);
 }
 
 .category.verbal {
-  background: var(--green-teal);
+  background: var(--light-green-teal);
 }
 .category.verbal .name {
   color: var(--green-teal);
 }
 
 .category.visual {
-  background: var(--cobalt-blue);
+  background: var(--light-cobalt-blue);
 }
 .category.visual .name {
   color: var(--cobalt-blue);
@@ -201,15 +216,87 @@ body {
 }
 
 .category .marks span:last-child {
-  color: var(--white-fade);
+  color: var(--light-gray-blue);
 }
 
-.right .submit {
+.submit {
   width: 100%;
+  position: relative;
   font-size: 0.89rem;
   color: var(--white);
   background: var(--dark-gray-blue);
   border-radius: 33px;
   padding: 1.25rem;
   cursor: pointer;
+  border: none;
+  outline: none;
+}
+
+.submit:hover {
+  background: var(--grad-1);
+}
+
+/* Queries */
+
+@media screen and (max-width: 768px) {
+  .result {
+    --main-w: 100%;
+    --main-h: 100%;
+    --paragraph: 13px;
+    gap: 0;
+    flex-direction: column;
+    justify-content: flex-start;
+    max-height: 100%;
+    border-radius: 0;
+  }
+
+  .result .left {
+    /* height: var(--h-left); */
+    width: 100%;
+    gap: 1.7rem;
+    padding: 1.7rem;
+    border-top-right-radius: 0;
+    border-top-left-radius: 0;
+  }
+
+  .left .fmarks {
+    padding: 25px 40px;
+  }
+
+  .fmarks span:first-child {
+    font-size: 2.4rem; /* 50px */
+  }
+
+  .fmarks span:nth-child(2) {
+    color: var(--white-fade);
+    font-weight: 700;
+    font-size: 16px;
+  }
+
+  .regards h2 {
+    font-size: 1.12rem;
+    margin-bottom: 1rem;
+  }
+
+  .left .regards {
+    padding: 0.25rem 1.5rem;
+  }
+
+  .result .right {
+    width: 100%;
+    padding: 1.7rem;
+    gap: 1.39rem;
+  }
+
+  .right .content {
+    gap: 0.834rem;
+  }
+
+  .content .category {
+    padding: 1.12rem;
+  }
+
+  .submit {
+    padding: 1.12rem;
+  }
 }
