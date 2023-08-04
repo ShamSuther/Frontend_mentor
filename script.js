@@ -40,7 +40,6 @@ const category = (category, score, icon) => {
 fetch("./data.json").then((data) => data.json())
     .then((result) => {
         result.forEach((item) => {
-            console.log(item);
             content[0].appendChild(category(item.category, item.score, item.icon));
         })
     });
