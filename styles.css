@@ -20,6 +20,8 @@
 
   --white: hsl(0, 0%, 100%);
   --white-fade: hsla(0, 0%, 100%, 0.678);
+  --white-faded: hsla(0, 0%, 100%, 0.322);
+
   --pale-blue: hsl(221, 100%, 94%);
   --light-lavender: hsl(241, 100%, 89%);
 
@@ -94,12 +96,12 @@ body {
 
 .section-title {
   font-weight: 700;
-  font-size: 20px;
+  font-size: 1.4rem;
 }
 
 .result .left {
   width: var(--left);
-  padding: 2.75rem; /* 44px */
+  padding: 2.5rem;
   background: var(--grad-1);
   border-radius: var(--rounded);
   display: flex;
@@ -107,7 +109,7 @@ body {
   justify-content: space-between;
   align-items: center;
   text-align: center;
-  gap: 2.5rem;
+  gap: 1.945rem; /* 45px */
 }
 
 .left .section-title {
@@ -115,32 +117,38 @@ body {
 }
 
 .left .fmarks {
-  width: 10rem;
+  width: 12rem;
   display: grid;
   place-content: center;
   background: var(--grad-2);
   aspect-ratio: 1 / 1;
   border-radius: var(--rounded-full);
-  color: var(--white-fade);
+  color: var(--white-faded);
   font-weight: 700;
   font-size: 16px;
+}
+
+.fmarks,
+.fmarks * {
+  font-weight: 800;
 }
 
 .fmarks span:first-child {
   display: block;
   color: var(--white);
-  font-size: 3.125rem; /* 50px */
+  font-size: 4rem; /* 72px */
 }
 
 .left .regards {
   color: var(--white-fade);
-  padding: 1.25rem;
+  padding: 0 1.25rem;
 }
 
 .regards h2 {
-  font-size: 1.563rem; /* 25px */
+  font-size: 1.6rem; /* 28.8px */
   color: var(--white);
-  margin-bottom: 25px;
+  margin-bottom: 20px;
+  font-weight: 700;
 }
 
 .result .right {
@@ -166,8 +174,7 @@ body {
 }
 
 .content .category {
-  /* background: rgba(255, 0, 0, 0.306); */
-  padding: 1.25rem;
+  padding: 1.115rem;
   width: 100%;
   display: flex;
   justify-content: space-between;
@@ -250,6 +257,10 @@ body {
     border-radius: 0;
   }
 
+  .section-title{
+    font-size: 1.2rem;
+  }
+
   .result .left {
     /* height: var(--h-left); */
     width: 100%;
@@ -260,21 +271,15 @@ body {
   }
 
   .left .fmarks {
+    width: 10rem;
     padding: 25px 40px;
   }
 
   .fmarks span:first-child {
-    font-size: 2.4rem; /* 50px */
-  }
-
-  .fmarks span:nth-child(2) {
-    color: var(--white-fade);
-    font-weight: 700;
-    font-size: 16px;
+    font-size: 3.5rem;
   }
 
   .regards h2 {
-    font-size: 1.12rem;
     margin-bottom: 1rem;
   }
 
