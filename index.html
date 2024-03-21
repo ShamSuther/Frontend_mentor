@@ -1,25 +1,36 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
-
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- displays site properly based on user's device -->
   <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
-  
   <title>Frontend Mentor | Expenses chart component</title>
-
-  <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
-  <style>
-    .attribution { font-size: 11px; text-align: center; }
-    .attribution a { color: hsl(228, 45%, 44%); }
-  </style>
+  <link rel="stylesheet" href="./styles/styles.css">
+  <!-- Script -->
 </head>
+
 <body>
+  <div class="expense-chart">
+    <!-- Header -->
+    <div class="chart-header">
+      <div class="header-text">
+        <p>My balance</p>
+        <h2>$921.48</h2>
+      </div>
+      <div class="header-img">
+        <img src="./images/logo.svg" alt="card">
+      </div>
+    </div>
+    <!-- Body -->
+    <div class="chart-body">
+      <p class="body-title">Spending - Last 7 days</p>
+      <div class="chart" id="chart"></div>
+    </div>
+  </div>
 
-  My balance
-  $921.48
 
-  Spending - Last 7 days
 
   mon
   tue
@@ -35,9 +46,35 @@
   +2.4%
   from last month
   
-  <div class="attribution">
-    Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
-    Coded by <a href="#">Your Name Here</a>.
-  </div>
+  <!-- Scripts -->
+  <script defer>
+    const path = "/data.json";
+    const chart = document.getElementById("chart");
+
+    const displayData = async (path) => {
+      const response = await fetch(path);
+      const result = await response.json();
+      return result;
+    }
+
+    addEventListener("DOMContentLoaded", () => {
+      displayData(path).then((resolve) => {
+        if (Array.isArray(resolve)) {
+          resolve.forEach((stock, index) => {
+            const child = document.createElement("div");
+            child.setAttribute("id", `day-${index}`);
+            child.setAttribute("class", "bars");
+            chart.appendChild(child);
+          })
+        }
+      })
+        .catch((error) => {
+          console.error(error);
+        })
+    })
+
+
+  </script>
 </body>
+
 </html>
