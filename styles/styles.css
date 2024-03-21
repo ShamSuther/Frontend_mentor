@@ -4,25 +4,27 @@
     --mobile: 375px;
     --desktop: 1440px;
 
-    /* Primary Colors */
-
     --soft-red: hsl(10, 79%, 65%);
     --cyan: hsl(186, 34%, 60%);
-
-    /* Neutral Colors */
-
     --dark-brown: hsl(25, 47%, 15%);
     --md-brown: hsl(28, 10%, 53%);
     --cream: hsl(27, 66%, 92%);
     --very-pale-orange: hsl(33, 100%, 98%);
 
-    /* Font Sizes */
-
     --font-normal: 18px;
-
-    /* Font Family */
+    --w-normal: 400;
+    --w-bold: 700;
 
     --DM-Sans: "DM Sans", sans-serif;
+
+    --chart-w: 34.375rem;
+    /* 550px */
+    --chart-h: 41.25rem;
+    /* 660px */
+
+    --rounded: 1.25rem;
+
+    --padding: 2rem;
 }
 
 * {
@@ -32,6 +34,101 @@
     font-family: var(--DM-Sans);
 }
 
-body{
+body {
     background: var(--cream);
+    display: grid;
+    place-items: center;
+}
+
+.expense-chart {
+    width: 100%;
+    height: 100%;
+    max-width: var(--chart-w);
+    max-height: var(--chart-h);
+}
+
+.expense-chart .chart-header {
+    padding: var(--padding);
+    display: flex;
+    background: var(--soft-red);
+    justify-content: space-between;
+    border-radius: var(--rounded);
+    align-items: center;
+    margin-bottom: 1.563rem;
+}
+
+.header-text {
+    color: white;
+}
+
+.header-text p {
+    font-size: 14px;
+    font-weight: var(--font-normal);
+    margin-bottom: .5rem;
+}
+
+.header-text h2 {
+    font-weight: var(--w-bold);
+}
+
+.expense-chart .chart-body {
+    padding: calc(var(--padding) + .25rem);
+    background-color: var(--very-pale-orange);
+    border-radius: var(--rounded);
+}
+
+.chart-body .chart{
+    min-height: 150px;
+    max-height: 250px;
+    display: flex;
+    position: relative;
+    justify-content: space-between;
+    gap: 1.125rem;
+    align-items: end;
+}
+
+.chart .bars{
+    width: 100%;
+    height: 0;
+    max-width: 50px;
+    display: block;
+    background: var(--soft-red);
+    border: 1px solid transparent;
+    border-radius: 0.438rem;
+    transition: 500ms ease-in-out;
+}
+
+.chart-body .body-title {
+    margin-top: .938rem;
+    color: var(--dark-brown);
+}
+
+.chart-details>p:first-child {
+    color: var(--md-brown);
+}
+
+.chart-details .chart-text {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.375rem;
+}
+
+.chart-text h1 {
+    color: var(--dark-brown);
+    font-size: 2.813rem
+        /* 45px */
+    ;
+}
+
+.chart-text>div {
+    text-align: end;
+}
+
+.chart-text>div>p:first-child {
+    font-weight: var(--w-bold);
+}
+
+.chart-text>div>p:last-child {
+    color: var(--md-brown);
 }

@@ -25,27 +25,23 @@
     </div>
     <!-- Body -->
     <div class="chart-body">
-      <p class="body-title">Spending - Last 7 days</p>
+      <h1 class="body-title">Spending - Last 7 days</h1>
       <div class="chart" id="chart"></div>
+      <div class="chart-details">
+        <!-- chart text -->
+        <p>Total this month</p>
+        <div class="chart-text">
+          <h1>$478.33</h1>
+          <div>
+            <p>+2.4%</p>
+            <p>from last month</p>
+          </div>
+        </div>
+        <!-- chart text: end -->
+      </div>
     </div>
   </div>
 
-
-
-  mon
-  tue
-  wed
-  thu
-  fri
-  sat
-  sun
-
-  Total this month
-  $478.33
-
-  +2.4%
-  from last month
-  
   <!-- Scripts -->
   <script defer>
     const path = "/data.json";
@@ -64,6 +60,7 @@
             const child = document.createElement("div");
             child.setAttribute("id", `day-${index}`);
             child.setAttribute("class", "bars");
+            child.style.height = `${stock.amount}px`;
             chart.appendChild(child);
           })
         }
@@ -72,8 +69,6 @@
           console.error(error);
         })
     })
-
-
   </script>
 </body>
 
