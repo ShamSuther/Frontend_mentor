@@ -5,7 +5,9 @@
     --desktop: 1440px;
 
     --soft-red: hsl(10, 79%, 65%);
+    --softer-red: hsla(10, 79%, 65%, 0.8);
     --cyan: hsl(186, 34%, 60%);
+    --soft-cyan: hsla(186, 34%, 60%, 0.8);
     --dark-brown: hsl(25, 47%, 15%);
     --md-brown: hsl(28, 10%, 53%);
     --cream: hsl(27, 66%, 92%);
@@ -25,6 +27,10 @@
     --rounded: 1.25rem;
 
     --padding: 2rem;
+    --chart-p: 1.563rem;
+
+    --bar-width: 3.125rem;
+    /* 50px */
 }
 
 * {
@@ -35,14 +41,15 @@
 }
 
 body {
+    width: 100%;
+    height: 100vh;
     background: var(--cream);
     display: grid;
-    place-items: center;
+    align-items: center;
+    justify-content: center;
 }
 
 .expense-chart {
-    width: 100%;
-    height: 100%;
     max-width: var(--chart-w);
     max-height: var(--chart-h);
 }
@@ -77,30 +84,81 @@ body {
     border-radius: var(--rounded);
 }
 
-.chart-body .chart{
-    min-height: 150px;
-    max-height: 250px;
+.chart-body .chart {
+    height: 250px;
     display: flex;
     position: relative;
     justify-content: space-between;
     gap: 1.125rem;
     align-items: end;
+    padding: var(--chart-p) 0;
+    border-bottom: 2px solid var(--cream);
 }
 
-.chart .bars{
-    width: 100%;
+.stocks .bar {
+    position: relative;
     height: 0;
-    max-width: 50px;
+    width: 100%;
+    min-width: var(--bar-width);
     display: block;
     background: var(--soft-red);
     border: 1px solid transparent;
     border-radius: 0.438rem;
-    transition: 500ms ease-in-out;
+    transition: 150ms ease-in-out;
+    cursor: pointer;
+    z-index: 1;
+}
+
+.bar.today {
+    background-color: var(--cyan);
+}
+
+.bar .tooltip {
+    /* display: none; */
+    opacity: 0;
+    position: absolute;
+    pointer-events: none;
+    top: -61px;
+    left: -50%;
+    transform: translateX(7px);
+    color: white;
+    font-weight: var(--w-bold);
+    text-align: center;
+    background: var(--dark-brown);
+    width: calc(var(--bar-width) + 1.25rem);
+    padding: 12px 10px;
+    border-radius: 6px;
+    z-index: 9999;
+    margin: 8px;
+    transition: opacity 150ms ease-out;
+}
+
+.bar:hover{
+    background: var(--softer-red);
+}
+
+.bar.today:hover{
+    background: var(--soft-cyan);
+}
+
+.bar:hover .tooltip {
+    /* display: block; */
+    opacity: 1;
+}
+
+.stocks .label {
+    margin: 0.625rem 0 0 0;
+    text-align: center;
+    color: var(--md-brown);
 }
 
 .chart-body .body-title {
     margin-top: .938rem;
     color: var(--dark-brown);
+}
+
+.chart-details {
+    padding: var(--chart-p) 0 0 0;
 }
 
 .chart-details>p:first-child {

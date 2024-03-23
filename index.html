@@ -43,33 +43,8 @@
   </div>
 
   <!-- Scripts -->
-  <script defer>
-    const path = "/data.json";
-    const chart = document.getElementById("chart");
-
-    const displayData = async (path) => {
-      const response = await fetch(path);
-      const result = await response.json();
-      return result;
-    }
-
-    addEventListener("DOMContentLoaded", () => {
-      displayData(path).then((resolve) => {
-        if (Array.isArray(resolve)) {
-          resolve.forEach((stock, index) => {
-            const child = document.createElement("div");
-            child.setAttribute("id", `day-${index}`);
-            child.setAttribute("class", "bars");
-            child.style.height = `${stock.amount}px`;
-            chart.appendChild(child);
-          })
-        }
-      })
-        .catch((error) => {
-          console.error(error);
-        })
-    })
-  </script>
+  <!-- chart.js -->
+  <script defer src="./script.js"></script>
 </body>
 
 </html>
