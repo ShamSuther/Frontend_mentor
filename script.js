@@ -22,7 +22,7 @@ addEventListener("DOMContentLoaded", () => {
                 const child = document.createElement("div");
                 child.setAttribute("id", `day-${index}`);
                 child.setAttribute("class", `bar ${(DayIndex === index ? "today" : "")}`);
-                child.style.height = `${stock.amount}px`;
+                child.style.height = `calc(${stock.amount}% + 1.25rem)`;
                 container.appendChild(child);
                 // tooltip
                 const tooltip = document.createElement("div");
