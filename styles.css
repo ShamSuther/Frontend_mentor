@@ -50,7 +50,7 @@ body {
     display: flex;
     flex-direction: column;
     gap: 1.5rem;
-    
+
     /* to-animate */
     opacity: 0;
     filter: blur(10px);
@@ -151,7 +151,7 @@ body {
 
     @media screen and (max-width: 350px) {
         .content {
-            
+
             button,
             p {
                 font-size: 0.875rem;
@@ -170,7 +170,7 @@ body {
 
     @media screen and (min-width: 1024px) {
         .content {
-            
+
             button,
             p {
                 font-size: 0.875rem;
@@ -185,5 +185,12 @@ body {
                 font-size: 1rem;
             }
         }
+    }
+}
+
+@media screen and (max-height: 500px) {
+    body {
+        height: 100%;
+        overflow-y: scroll;
     }
 }
