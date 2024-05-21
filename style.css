@@ -45,4 +45,205 @@ h4,
 h5,
 h6 {
     font-family: var(--y-serif);
+    margin-bottom: 1.563rem;
+    line-height: 1;
+}
+
+hr {
+    border-color: var(--light-grey);
+    opacity: 0.35;
+}
+
+ul,
+ol {
+    list-style-position: inside;
+}
+
+p,
+li,
+span {
+    font-family: var(--outfit);
+    color: var(--wenge-brown);
+    line-height: 1.5;
+}
+
+
+li {
+    line-height: 1.7;
+    margin-left: 6px;
+
+    span {
+        margin-left: 1rem;
+    }
+
+    &::marker {
+        margin: auto 1rem auto 6px;
+    }
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+
+    li {
+        display: flex;
+        align-items: flex-start;
+        margin-bottom: 10px;
+
+        p {
+            margin-left: 1rem;
+
+            span {
+                margin: 0;
+            }
+        }
+
+        &::before {
+            content: "•";
+            font-family: Arial, Helvetica, sans-serif;
+            margin-right: 10px;
+            font-weight: 700;
+            line-height: 1.5;
+        }
+    }
+
+}
+
+ol {
+    list-style: none;
+    padding: 0;
+
+    li {
+        &::before {
+            content: counter(custom-counter)".";
+            font-family: Arial, Helvetica, sans-serif;
+            margin-right: 10px;
+            font-weight: 700;
+            line-height: 1.5;
+        }
+
+        display: flex;
+        align-items: flex-start;
+        margin-bottom: 10px;
+        counter-increment: custom-counter;
+
+        p {
+            margin-left: 1rem;
+
+            span {
+                margin: 0;
+            }
+        }
+
+    }
+
+}
+
+
+.recipe-main {
+    .content {
+        display: flex;
+        flex-direction: column;
+        padding: 2.313rem 1.875rem;
+        gap: 2.313rem;
+
+        .details {
+            #title {
+                font-weight: 500;
+                color: var(--dark-charcoal);
+                margin-bottom: 1.563rem;
+            }
+
+            p {
+                font-size: 1rem;
+            }
+        }
+
+        /* preparation time */
+        .preparation-time {
+            border-radius: 1rem;
+            padding: 1.438rem;
+            background-color: var(--rose-white);
+
+            h3 {
+                font-size: 1.25rem;
+                font-family: var(--outfit);
+                color: var(--dark-raspberry);
+                margin-bottom: 1.125rem;
+            }
+
+            ul {
+                li {
+                    p {
+                        span {
+                            font-weight: 600;
+                        }
+
+                        &::before {
+                            color: var(--dark-raspberry);
+                        }
+                    }
+                }
+            }
+        }
+
+        h2 {
+            font-size: 1.7rem;
+            font-weight: 500;
+            color: var(--nutmeg);
+        }
+
+        /* instructions */
+        .instructions {
+            ol.list {
+                li {
+                    p {
+                        span {
+                            font-weight: 600;
+                        }
+                    }
+
+                    &::before {
+                        color: var(--nutmeg) !important;
+                    }
+                }
+            }
+        }
+
+        /* nutrition */
+        .nutrition {
+            p {
+                margin-bottom:1.688rem;
+            }
+
+            table {
+                width: 100%;
+                border-collapse: collapse;
+                
+                tbody {
+                    tr {
+                        border-bottom: 1px solid var(--light-grey);
+                        &:last-child{
+                            border-bottom: 0;
+                        }
+                        td {
+                            width: fit-content;
+                            color: var(--wenge-brown);
+                            line-height: 1.5;
+                            column-span: 2;
+                            &:nth-child(1){
+                                padding: 0.625rem;
+                                padding-left: 1.875rem;
+                            }
+                            &:nth-child(2){
+                                width: 50%;
+                                font-weight: 600;
+                                color: var(--nutmeg);
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
 }
