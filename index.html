@@ -8,11 +8,13 @@
   <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon-32x32.png">
   <title>Frontend Mentor | Recipe page</title>
   <link rel="stylesheet" href="style.css">
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"
+    integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
 </head>
 
 <body>
 
-  <div class="recipe-main">
+  <div class="recipe-main" id="recipe-main">
     <!-- img -->
     <div class="display-img">
       <img src="./assets/images/image-omelette.jpeg" width="100%" height="100%" alt="img">
@@ -31,9 +33,15 @@
       <div class="preparation-time">
         <h3>Preparation time</h3>
         <ul class="list">
-          <li><p><span>Total: </span>Approximately 10 minutes</p></li>
-          <li><p><span>Preparation: </span>5 minutes</p></li>
-          <li><p><span>Cooking: </span>5 minutes</p></li>
+          <li>
+            <p><span>Total: </span>Approximately 10 minutes</p>
+          </li>
+          <li>
+            <p><span>Preparation: </span>5 minutes</p>
+          </li>
+          <li>
+            <p><span>Cooking: </span>5 minutes</p>
+          </li>
         </ul>
       </div>
       <!-- ingredients -->
@@ -52,20 +60,33 @@
       <div class="instructions">
         <h2>Instructions</h2>
         <ol class="list">
-          <li><p><span>Beat the eggs:</span> In a bowl, beat the eggs with a pinch of salt and pepper until they are well
-            mixed.
-            You can add a tablespoon of water or milk for a fluffier texture.</p></li>
-          <li><p><span>Heat the pan:</span> Place a non-stick frying pan over medium heat and add butter or oil.</p></li>
-          <li><p><span>Cook the omelette:</span> Once the butter is melted and bubbling, pour in the eggs. Tilt the pan to
-            ensure
-            the eggs evenly coat the surface.</p></li>
-          <li><p><span>Add fillings (optional):</span> When the eggs begin to set at the edges but are still slightly runny
-            in the
-            middle, sprinkle your chosen fillings over one half of the omelette.</p></li>
-          <li><p><span>Fold and serve:</span> As the omelette continues to cook, carefully lift one edge and fold it over
-            the
-            fillings. Let it cook for another minute, then slide it onto a plate.</p></li>
-          <li><p><span>Enjoy:</span> Serve hot, with additional salt and pepper if needed.</p></li>
+          <li>
+            <p><span>Beat the eggs:</span> In a bowl, beat the eggs with a pinch of salt and pepper until they are well
+              mixed.
+              You can add a tablespoon of water or milk for a fluffier texture.</p>
+          </li>
+          <li>
+            <p><span>Heat the pan:</span> Place a non-stick frying pan over medium heat and add butter or oil.</p>
+          </li>
+          <li>
+            <p><span>Cook the omelette:</span> Once the butter is melted and bubbling, pour in the eggs. Tilt the pan to
+              ensure
+              the eggs evenly coat the surface.</p>
+          </li>
+          <li>
+            <p><span>Add fillings (optional):</span> When the eggs begin to set at the edges but are still slightly
+              runny
+              in the
+              middle, sprinkle your chosen fillings over one half of the omelette.</p>
+          </li>
+          <li>
+            <p><span>Fold and serve:</span> As the omelette continues to cook, carefully lift one edge and fold it over
+              the
+              fillings. Let it cook for another minute, then slide it onto a plate.</p>
+          </li>
+          <li>
+            <p><span>Enjoy:</span> Serve hot, with additional salt and pepper if needed.</p>
+          </li>
         </ol>
       </div>
       <hr>
@@ -93,7 +114,29 @@
         </table>
       </div>
     </div>
+    <!-- scripts -->
+    <script>
+      const targets = ["#recipe-main", ".display-img"];
+
+      // recipe-main
+      $(document).ready(function () {
+        $(targets[0]).animate({
+          opacity: 1
+        }, {
+          duration: 150,
+          easing: "swing"
+        })
+        $(targets[0]).css("filter", "blur(0)");
+      })
+      // img
+      $(targets[1]).each(function () {
+        $(this).animate({
+          opacity: 1,
+        }, 250);
+      })
+    </script>
   </div>
+
 </body>
 
 </html>

@@ -153,6 +153,8 @@ ol {
 
 
 .recipe-main {
+    opacity: 0;
+    filter: blur(10px);
     @media screen and (min-width: 768px) {
         width: 100%;
         background: white;
@@ -169,6 +171,7 @@ ol {
 
     .display-img {
         width: 100%;
+        opacity: 0;
 
         @media screen and (min-width: 768px) {
             width: 100%;
