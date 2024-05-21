@@ -38,6 +38,18 @@
     font-family: var(--outfit);
 }
 
+body {
+    width: 100%;
+
+    @media screen and (min-width: 768px) {
+        min-height: 100vh;
+        background: var(--eggshell);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+}
+
 h1,
 h2,
 h3,
@@ -141,21 +153,65 @@ ol {
 
 
 .recipe-main {
+    @media screen and (min-width: 768px) {
+        width: 100%;
+        background: white;
+        max-width: 568px;
+        padding: 2.313rem;
+        border-radius: 1.5rem;
+        overflow: hidden;
+        margin-block: 6.24%;
+    }
+
+    @media screen and (min-width: 1560px) {
+        max-width: 768px;
+    }
+
+    .display-img {
+        width: 100%;
+
+        @media screen and (min-width: 768px) {
+            width: 100%;
+            border-radius: calc(2.313rem - 1.5rem);
+            overflow: hidden;
+        }
+
+        img {
+            object-fit: cover;
+            object-position: center;
+        }
+
+    }
+
     .content {
         display: flex;
         flex-direction: column;
         padding: 2.313rem 1.875rem;
         gap: 2.313rem;
 
+        @media screen and (min-width: 768px) {
+            padding: 0;
+            padding-top: 2.313rem;
+        }
+
         .details {
             #title {
                 font-weight: 500;
                 color: var(--dark-charcoal);
                 margin-bottom: 1.563rem;
+
+                @media screen and (min-width: 768px) {
+                    font-size: 1.7rem;
+                }
+
             }
 
             p {
                 font-size: 1rem;
+
+                @media screen and (min-width: 768px) {
+                    font-size: 0.75rem;
+                }
             }
         }
 
@@ -213,29 +269,33 @@ ol {
         /* nutrition */
         .nutrition {
             p {
-                margin-bottom:1.688rem;
+                margin-bottom: 1.688rem;
             }
 
             table {
                 width: 100%;
                 border-collapse: collapse;
-                
+
                 tbody {
                     tr {
                         border-bottom: 1px solid var(--light-grey);
-                        &:last-child{
+
+                        &:last-child {
                             border-bottom: 0;
                         }
+
                         td {
                             width: fit-content;
                             color: var(--wenge-brown);
                             line-height: 1.5;
                             column-span: 2;
-                            &:nth-child(1){
+
+                            &:nth-child(1) {
                                 padding: 0.625rem;
                                 padding-left: 1.875rem;
                             }
-                            &:nth-child(2){
+
+                            &:nth-child(2) {
                                 width: 50%;
                                 font-weight: 600;
                                 color: var(--nutmeg);
