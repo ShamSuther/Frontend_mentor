@@ -554,22 +554,18 @@ video {
   --tw-contain-style:  ;
 }
 
-.bg-sky-500 {
-  --tw-bg-opacity: 1;
-  background-color: rgb(14 165 233 / var(--tw-bg-opacity));
+.text-lime {
+  --tw-text-opacity: 1;
+  color: hsl(61 70% 52% / var(--tw-text-opacity));
 }
 
-.\~text-sm\/xl {
-  font-size: /* not fluid type from 0.875rem at 640px to 1.25rem at 1536px: Breakpoint and value units don't match */;
-  line-height: /* not fluid from 1.25rem at 640px to 1.75rem at 1536px: Breakpoint and value units don't match */;
+* {
+  font-family: "Plus Jakarta Sans", sans-serif;
 }
 
-.\~px-4\/8 {
-  padding-left: /* not fluid from 1rem at 640px to 2rem at 1536px: Breakpoint and value units don't match */;
-  padding-right: /* not fluid from 1rem at 640px to 2rem at 1536px: Breakpoint and value units don't match */;
-}
-
-.\~py-2\/4 {
-  padding-top: /* not fluid from 0.5rem at 640px to 1rem at 1536px: Breakpoint and value units don't match */;
-  padding-bottom: /* not fluid from 0.5rem at 640px to 1rem at 1536px: Breakpoint and value units don't match */;
+body {
+  display: flex;
+  height: 100vh;
+  align-items: center;
+  justify-content: center;
 }
