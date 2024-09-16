@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -12,44 +13,77 @@
 </head>
 
 <body>
-
-  Mortgage Calculator
-  Clear All
-
-  Mortgage Amount
-
-  Mortgage Term
-
-  Interest Rate
-
-  Mortgage Type
-  Repayment
-  Interest Only
-
-  Calculate Repayments
-
-  <!-- Empty results start -->
-
-  Results shown here
-
-  Complete the form and click “calculate repayments” to see what
-  your monthly repayments would be.
-
-  <!-- Empty results end -->
-
-  <!-- Completed results start -->
-
-  Your results
-
-  Your results are shown below based on the information you provided.
-  To adjust the results, edit the form and click “calculate repayments” again.
-
-  Your monthly repayments
-
-  Total you'll repay over the term
-
-  <button class="bg-sky-500 ~px-4/8 ~py-2/4 ~text-sm/xl ...">Fluid button</button>
-
+  <div class="main">
+    <!-- calculator -->
+    <div class="calculator">
+      <div>
+        <p>Mortgage Calculator</p>
+        <button type="reset">Clear All</button>
+      </div>
+      <form action="">
+        <!-- content -->
+        <div>
+          <label for="Amount">Mortgage Amount</label>
+          <input type="number" id="Amount">
+        </div>
+        <!-- nested content -->
+        <div>
+          <div>
+            <label for="Term">Mortgage Term</label>
+            <div>
+              <input type="number" id="term">
+              <p>Years</p>
+            </div>
+          </div>
+          <div>
+            <label for="Rate">Interest Rate</label>
+            <div>
+              <input type="number" id="Rate">
+              <p>%</p>
+            </div>
+          </div>
+        </div>
+        <!-- radios -->
+        <div>
+          <label for="Type">Mortgage Type</label>
+          <div>
+            <div class="radio">
+              <input type="radio" name="repayment" id="repayment">
+              <label for="repayment">Repayment</label>
+              <div class="radio">
+                <input type="radio" name="io" id="io">
+                <label for="io">Interest Only</label>
+              </div>
+            </div>
+          </div>
+          <!-- submit -->
+          <button type="submit">
+            <img src="./assets/images/icon-calculator.svg" alt="Calculate">
+            Calculate Repayments
+          </button>
+      </form>
+    </div>
+    <!-- results -->
+    <div class="results">
+      <img class="empty" src="./assets/images/illustration-empty.svg" alt="empty">
+      <div class="text">
+        <p>Your results</p>
+        <p>Complete the form and click “calculate repayments” to see what
+          your monthly repayments would be.</p>
+      </div>
+      <div class="payments">
+        <div>
+          <p>Your monthly repayments</p>
+          <p>₤<span id="monthly-payment">1,797.74</span></p>
+        </div>
+        <div>
+          <p>Total you'll repay over the term</p>
+          <p>₤<span id="term">539,322.94</span></p>
+        </div>
+      </div>
+      <!-- end -->
+    </div>
+  </div>
   <!-- Completed results end -->
 </body>
 
