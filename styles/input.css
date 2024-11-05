@@ -6,8 +6,171 @@
 
 * {
     font-family: "Plus Jakarta Sans", sans-serif;
+    @apply antialiased;
 }
 
-body{
-    @apply h-screen flex justify-center items-center;
+body {
+    @apply min-h-screen flex justify-center items-center;
+}
+
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+button[type=reset] {
+    @apply text-white-700 underline underline-offset-1 decoration-white-500;
+}
+
+
+.main {
+    @apply w-full h-full flex flex-col;
+
+    /* calculator */
+
+    div.calculator {
+        @apply p-6;
+
+        div {
+            p.title {
+                @apply text-2xl text-white-900 font-bold mb-[0.6rem] mt-3;
+            }
+        }
+
+        form {
+            @apply flex flex-col gap-2 py-3.5 mb-3.5;
+
+            div.input_field {
+                label {
+                    @apply text-white-700 font-medium;
+                }
+
+                input {
+                    @apply w-full text-white-900 font-bold px-4 py-3.5 border border-white-700 rounded-md transition duration-200 outline-2 outline-transparent bg-transparent;
+                    transition: all 150ms ease;
+                }
+
+                input:focus {
+                    @apply outline-white-900;
+                }
+            }
+
+            div.amount,
+            div.term,
+            div.ir,
+            div.type {
+                @apply relative overflow-hidden rounded-md my-2.5;
+            }
+
+            div.amount {
+                input {
+                    @apply pl-14;
+                }
+
+                div.placeholder {
+                    @apply absolute text-base p-4 bg-white-100 font-bold text-white-900 inset-y-0 left-0;
+                    z-index: -1;
+                }
+            }
+
+            div.term,
+            div.ir {
+                div.placeholder {
+                    @apply absolute text-base p-4 bg-white-100 font-bold text-white-900 inset-y-0 right-0;
+                    z-index: -1;
+                }
+            }
+
+            div.term {
+                input {
+                    @apply pr-[5.5rem];
+                }
+            }
+
+            div.ir {
+                input {
+                    @apply pr-14;
+                }
+            }
+
+
+            /* radio button */
+
+            div {
+                div.radio {
+                    @apply w-full flex items-center justify-start px-4 py-3.5 border border-white-700 rounded-md;
+
+                    input[type=radio] {
+                        @apply m-0 w-4 h-4;
+                    }
+
+                    label {
+                        @apply text-white-900 font-bold ml-3.5;
+                    }
+                }
+
+                div.radio:first-child{
+                    @apply mb-3;
+                }
+
+                .radio.active {
+                    @apply bg-lime-100 border border-lime;
+                }
+            }
+
+            /* submit button */
+
+            button[type=submit] {
+                @apply relative w-full bg-lime font-bold text-white-900 flex items-center justify-center gap-3.5 p-4 rounded-full outline outline-lime overflow-hidden;
+                transition: all 750ms ease;
+            }
+
+            button[type=submit]::before {
+                content: "";
+                position: absolute;
+                left: -100%;
+                background-color: white;
+                width: 10rem;
+                height: 100%;
+                transform: skew(-30deg);
+                filter: blur(10px);
+                visibility: hidden;
+                transition: all 750ms ease-in-out;
+                opacity: 0.25;
+            }
+
+            button[type=submit]:hover {
+                @apply outline-white-900;
+            }
+
+            button[type=submit]:hover::before {
+                visibility: visible;
+                opacity: 0.15;
+                left: 150%;
+            }
+        }
+    }
+
+    /* results */
+
+    div.results{
+        @apply text-white px-6 py-8 bg-white-900 flex flex-col items-center justify-center text-center;
+
+        div.no-pay{
+            @apply flex flex-col items-center justify-center;
+            img{
+                object-fit: cover;
+                object-position: center;
+            }
+            div.text{
+                p:first-child{
+                    @apply text-white text-2xl font-bold mt-3 mb-4;
+                }
+                p{
+                    @apply text-white-300 text-base text-pretty;
+                }
+            }
+        }
+    }
 }
